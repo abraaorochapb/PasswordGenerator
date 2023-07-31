@@ -1,5 +1,6 @@
 const generatePasswordBtn = document.querySelector('#generate-password')
 const generatedPasswordElemet = document.querySelector('#generated-password')
+const copyBtn = document.querySelector('#copiar-btn')
 
 //functions
 
@@ -33,4 +34,13 @@ const generatePassword = () => {
 //events
 generatePasswordBtn.addEventListener('click', (e) => {
   generatePassword()
+})
+
+copyBtn.addEventListener('click', (e) => {
+  navigator.clipboard.writeText(generatedPasswordElemet.querySelector('h4').innerHTML)
+  copyBtn.innerText = 'Copiado!'
+
+  setTimeout(() => {
+    copyBtn.innerText = 'Copiar'
+  }, 1000)
 })
